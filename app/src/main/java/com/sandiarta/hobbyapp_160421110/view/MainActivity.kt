@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController:NavController
 
-    var isLogin = false
     var id_account = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,14 +49,20 @@ class MainActivity : AppCompatActivity() {
     fun OffMenu() {
         binding.bottomNav.isVisible = false
         binding.navView.isVisible = false
-        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+
+        val actionBar = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(false)
+
         binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
     }
 
     fun OnMenu() {
         binding.bottomNav.isVisible = true
         binding.navView.isVisible = true
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val actionBar = supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+
         binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
 
     }
